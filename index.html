@@ -1,14 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
-    <title>Atmosfar</title>
-  </head>
-  <body>
-
-    <h1>Hello World!</h1>
-      <h2>Version: <strong id="app-version">unset</strong></h2>
-
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmosfär - The Weather at Your Fingertips</title>
+    <meta name="author" content="Sahal">
+    <meta name="description" content="Atmosfär - The Weather at your Fingertips">
+    <meta name="keywords" content="Atmosfär, Atmosfär Weather App">
+    <link rel="stylesheet" href="./index.css" media="screen">
+    <script src="https://kit.fontawesome.com/fe9589e77e.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+    <header id="titlebar">
+        <div id="drag-region">
+            <div id="window-title">
+                <h3 class="brand">atmosfär.</h3>
+            </div>
+            <div id="window-controls">
+                <div class="button" id="min-button">
+                    <img class="icon" srcset="assets/icons/min-w-10.png 1x, assets/icons/min-w-12.png 1.25x, assets/icons/min-w-15.png 1.5x, assets/icons/min-w-15.png 1.75x, assets/icons/min-w-20.png 2x, assets/icons/min-w-20.png 2.25x, assets/icons/min-w-24.png 2.5x, assets/icons/min-w-30.png 3x, assets/icons/min-w-30.png 3.5x" draggable="false" />
+                </div>
+                <div class="button" id="max-button">
+                    <img class="icon" srcset="assets/icons/max-w-10.png 1x, assets/icons/max-w-12.png 1.25x, assets/icons/max-w-15.png 1.5x, assets/icons/max-w-15.png 1.75x, assets/icons/max-w-20.png 2x, assets/icons/max-w-20.png 2.25x, assets/icons/max-w-24.png 2.5x, assets/icons/max-w-30.png 3x, assets/icons/max-w-30.png 3.5x" draggable="false" />
+                </div>
+                <div class="button" id="restore-button">
+                    <img class="icon" srcset="assets/icons/restore-w-10.png 1x, assets/icons/restore-w-12.png 1.25x, assets/icons/restore-w-15.png 1.5x, assets/icons/restore-w-15.png 1.75x, assets/icons/restore-w-20.png 2x, assets/icons/restore-w-20.png 2.25x, assets/icons/restore-w-24.png 2.5x, assets/icons/restore-w-30.png 3x, assets/icons/restore-w-30.png 3.5x" draggable="false" />
+                </div>
+                <div class="button" id="close-button">
+                    <img class="icon" srcset="assets/icons/close-w-10.png 1x, assets/icons/close-w-12.png 1.25x, assets/icons/close-w-15.png 1.5x, assets/icons/close-w-15.png 1.75x, assets/icons/close-w-20.png 2x, assets/icons/close-w-20.png 2.25x, assets/icons/close-w-24.png 2.5x, assets/icons/close-w-30.png 3x, assets/icons/close-w-30.png 3.5x" draggable="false" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="weather-app">
+        <div class="container">
+            <dir class="loader-wrapper">
+                <span class="loader"></span>
+            </dir>
+            <h3 class="brand"></h3>
+            <div>
+                <h1 class="temp">??&#176; C/F</h1>
+                <div class="city-time">
+                    <h1 class="name">??</h1>
+                    <small>
+                        <span class="country">???</span> -
+                        <span class="datetime">??:??</span>
+                    </small>
+                </div>
+                <div class="weather">
+                    <img src="./assets/icons/questionmark.svg" class="weatherIcon" id="weatherIcon" alt="weatherIcon" width="42" height="42"/>
+                    <span class="condition">???</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+                <input type="text" class="search" placeholder="Search Location..."/>
+            <button class="submit" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+            <ul class="details">
+                <h4>Weather Details</h4>
+                <li><span>Feels Like</span><span class="feelslike">??&#176;C/F</span></li>
+                <li><span>Humidity</span><span class="humidity">??%</span></li>
+                <li><span>Cloudy</span><span class="cloud">??%</span></li>
+                <li><span>Visibility</span><span class="visib">??KM / Miles</span></li>
+                <li><span>Precipitation</span><span class="precip">???</span></li>
+                <li><span>Wind</span><span class="wind">??KMph / Mph</span></li>
+                <li><span>Wind Direction In Degrees</span><span class="winddeg">??&#176;</span></li>
+                <li><span>Wind Direction</span><span class="winddir">???</span></li>
+                <li><span>Wind Gust</span><span class="gust">???</span></li>
+                <li><span>UV Index</span><span class="uvindex">???</span></li>
+                <li><span>Pressure</span><span class="pressure">???MB / IN</span></li>
+                <h4>Air Quality Details</h4>
+                <li><span>CO (Carbon Monoxide)</span><span class="carbmonx">?? μg/m3</span></li>
+                <li><span>O3 (Ozone)</span><span class="ozone">?? μg/m3</span></li>
+                <li><span>NO2 (Nitrogen Dioxide)</span><span class="nitrodiox">?? μg/m3</span></li>
+                <li><span>SO2 (Sulphur Dioxide)</span><span class="sulphdiox">?? μg/m3</span></li>
+                <li><span>PM2.5 (Particulate Matter Less Than 2.5 Microns)</span><span class="pm25">?? μg/m3</span></li>
+                <li><span>PM10 (Particulate Matter Less Than 10 Microns)</span><span class="pm10">?? μg/m3</span></li>
+                <li><span>Air Quality Index (As Per US <a class="links" href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">EPA Standards</a>)</span><span class="usepaindex">???</span></li>
+                <li><span>Air Quality Index (As Per UK <a class="links" href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">Defra Index</a>)</span><span class="ukdefraindex">???</span></li>
+                <h4>Astronomy</h4>
+                <li><span>Sunrise</span><span class="sunrise">00:00</span></li>
+                <li><span>Sunset</span><span class="sunset">00:00</span></li>
+                <li><span>Moonrise</span><span class="moonrise">00:00</span></li>
+                <li><span>Moonset</span><span class="moonset">00:00</span></li>
+                <li><span>Moon Phase</span><span class="moonphase">00</span></li>
+                <li><span>Moon Illumination</span><span class="moonillum">00</span></li>
+                <li><span class="lastupdated">Last Updated At: ????</span></li>
+            </ul>
+            <p>Powered by <a class="links" href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
+            <p>App Version : <a class="links" href="https://adac.vercel.app" title="Changelogs" id="app-version"></a></p>
+            <p><span class="creditstext">Clear Day Photo by <a class="creditslinks" href="https://unsplash.com/@pedromealha?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pedro Mealha</a> on <a class="creditslinks" href="https://unsplash.com/photos/aerial-view-of-city-during-daytime-kCWKTI7OLQg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Cloudy Day Photo by <a class="creditslinks" href="https://unsplash.com/@alexblokstra?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alex Blokstra</a> on <a class="creditslinks" href="https://unsplash.com/photos/brown-wooden-house-on-green-grass-field-near-mountain-under-white-clouds-during-daytime-3UzHzZR5SVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Rainy Day Photo by <a class="creditslinks" href="https://unsplash.com/@halannahalila?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Halanna Halila</a> on <a class="creditslinks" href="https://unsplash.com/photos/green-leafed-trees-8lQyd8wEAzI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Snowy Day Photo by <a class="creditslinks" href="https://unsplash.com/@xelysa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elisa Coluccia</a> on <a class="creditslinks" href="https://unsplash.com/photos/several-snow-covered-trees-v8iWQlz5wtc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Clear Night Photo by <a class="creditslinks" href="https://unsplash.com/@airvibes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ivan Codrean</a> on <a class="creditslinks" href="https://unsplash.com/photos/a-person-standing-on-top-of-a-hill-near-the-ocean-c-yuMyyc3Xk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Cloudy Night Photo by <a class="creditslinks" href="https://unsplash.com/@andriyko?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Andriyko Podilnyk</a> on <a class="creditslinks" href="https://unsplash.com/photos/silhouette-photography-of-mountain-E6ne6IUNxZw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Rainy Night Photo by <a class="creditslinks" href="https://unsplash.com/@bensow?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Benjamin Sow</a> on <a class="creditslinks" href="https://unsplash.com/photos/bokeh-photography-QjR_snVQn4c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Snowy Night Photo by <a class="creditslinks" href="https://unsplash.com/@vorosbenisop?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Benjamin Voros</a> on <a class="creditslinks" href="https://unsplash.com/photos/crescent-moon-above-mountain-U-Kty6HxcQc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>   
+            <p><span class="creditstext">Weather App UI From Pinterest. Link Not Found 🙁</span></p>   
+        </div>
+    </div>
+    <script src="./index.js" defer></script>
+    <script src="./renderer.js" defer></script>
+</body>
 </html>

@@ -1,32 +1,71 @@
-// This is standard boilerplate to set up a new Electron window.
-// Please refer to the Electron tutorials for more information.
+const path = require('path');
+const { app, BrowserWindow, ipcMain } = require('electron');
 
-const {app, BrowserWindow} = require('electron')
+let mainWindow;
 
-function createWindow() {
-    const mainWindow = new BrowserWindow({ width: 800, height: 600 })
-    mainWindow.loadFile('index.html')
-    const version = app.getVersion()
-    mainWindow.webContents.executeJavaScript(`
-        const elem = document.querySelector('#app-version');
-        elem.textContent = '${version}';
-    `);
+function createMainWindow() {
+  mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    minHeight: 720,
+    minWidth: 1380,
+    show: true,
+    autoHideMenuBar: true,
+    roundedCorners: true,
+    icon: path.join(__dirname, 'assets/icons/icon.png'),
+    hasShadow: true,
+    vibrancy: 'ultra-dark',
+    visualEffectState: 'active',
+    frame: false,
+    backgroundColor: '#FFF',
+    closable: true,
+    webPreferences: {
+      preload: path.join(__dirname, './preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+      devTools: false,
+      webSecurity: true,
+    },
+  });
+
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+
+  require('@electron/remote/main').initialize();
+  require('@electron/remote/main').enable(mainWindow.webContents);
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+
+  ipcMain.on('get-app-version', (event) => {
+    const packageJson = require(path.join(app.getAppPath(), 'package.json'));
+    event.returnValue = packageJson.version;
+  });
 }
 
-app.whenReady().then(() => {
-    // This code is invoked once Electron is ready.
-    createWindow()
+function openMainWindow() {
+  if (mainWindow) {
+    mainWindow.show();
+  } else {
+    createMainWindow();
+  }
+}
 
-    app.on('activate', function () {
-        // On macOS it's common to re-create a window in the app when the
-        // dock icon is clicked and there are no other windows open.
-        if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
-})
+app.on('ready', openMainWindow);
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
-})
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createMainWindow();
+  }
+});

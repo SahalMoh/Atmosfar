@@ -1,14 +1,25 @@
 {
   "name": "atmosfar",
-  "version": "1.0",
-  "description": "An example app showing how to combine Electron apps with Conveyor",
+  "version": "3.0.0",
+  "description": "The Weather At Your Fingertips.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "author": "Hydraulic Software",
-  "license": "Apache 2.0",
+  "keywords": [
+    "Atmosfär",
+    "Atmosfär Weather App",
+    "Atmosfär - The Weather At Your Fingertips"
+  ],
+  "author": {
+    "name": "Sahal",
+    "email": "sahalbot@outlook.com"
+  },
+  "license": "MIT",
   "devDependencies": {
     "electron": "^30.0.0"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2"
   }
 }
