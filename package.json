@@ -1,0 +1,14 @@
+{
+  "name": "atmosfar",
+  "version": "1.0",
+  "description": "An example app showing how to combine Electron apps with Conveyor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Hydraulic Software",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}
