@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
 
-body {
+html, body {
     margin: 0;
     font-family: "Radio Canada Big", sans-serif;
     font-optical-sizing: auto;
     background: #111;
+    overflow-y: hidden;
 }
 
 #titlebar {

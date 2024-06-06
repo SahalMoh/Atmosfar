@@ -111,7 +111,6 @@ const weather = {
 
     const setButtonBackground = (is_day, submitBackgroundDay, submitBackgroundNight) => {
       submitButton.style.background = is_day ? submitBackgroundDay : submitBackgroundNight;
-      submitButton.style.transition = "1.25s ease-in-out";
     };
 
     const setBackgroundImage = (
