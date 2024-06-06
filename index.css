@@ -6,120 +6,11 @@ html, body {
     font-optical-sizing: auto;
     background: #111;
     overflow-y: hidden;
-}
-
-#titlebar {
-    display: block;
-    position: fixed;
-    height: 32px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    width: calc(100%);
-    backdrop-filter: blur(10px);
-    --webkit-backdrop-filter: blur(10px);
-    z-index: 3;
-    padding: 4px;
-    color: #FFF;
-}
-
-#titlebar #drag-region {
-    width: 100%;
-    height: 100%;
-    -webkit-app-region: drag;
-    display: grid;
-    grid-template-columns: auto 138px;
-}
-
-#window-title {
-    grid-column: 1;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-    overflow: hidden;
-    font-family: "Radio Canada Big", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 12px;
-}
-
-#window-controls {
-    display: grid;
-    grid-template-columns: repeat(3, 46px);
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    -webkit-app-region: no-drag;
-}
-
-#window-controls .button {
-    grid-row: 1 / span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
     user-select: none;
 }
 
-#min-button {
-    grid-column: 1;
-}
-
-#max-button, #restore-button {
-    grid-column: 2;
-}
-
-#close-button {
-    grid-column: 3;
-}
-
-@media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
-(-webkit-device-pixel-ratio: 2), (device-pixel-ratio: 2),
-(-webkit-device-pixel-ratio: 3), (device-pixel-ratio: 3) {
-#window-controls .icon {
-    width: 10px;
-    height: 10px;
-}
-}
-
-#window-controls .button:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-#window-controls .button:active {
-    background: rgba(255,255,255,0.2);
-}
-
-#close-button:hover {
-    background: #E81123 !important;
-}
-
-#close-button:active {
-    background: #F1707A !important;
-}
-
-#close-button:active .icon {
-    filter: invert(1);
-}
-
-#restore-button {
-    display: none !important;
-}
-
-.maximized #titlebar {
-    width: 100%;
-    padding: 0;
-}
-
-.maximized #window-title {
-    margin-left: 12px;
-}
-
-.maximized #restore-button {
-    display: flex !important;
-}
-
-.maximized #max-button {
-    display: none;
+img {
+    pointer-events: none;
 }
 
 .links {
@@ -239,8 +130,7 @@ h3{
 .panel {
     position: absolute;
     width: 40%;
-    height: calc(100% - 32px);
-    top: 32px;
+    height: calc(100%);
     right: 0;
     background: rgba(110, 110, 110, 0.25);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);

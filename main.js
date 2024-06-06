@@ -1,5 +1,5 @@
 const path = require('path');
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 
 let mainWindow;
 
@@ -16,8 +16,6 @@ function createMainWindow() {
     hasShadow: true,
     vibrancy: 'ultra-dark',
     visualEffectState: 'active',
-    frame: false,
-    backgroundColor: '#FFF',
     closable: true,
     webPreferences: {
       preload: path.join(__dirname, './preload.js'),
@@ -25,9 +23,11 @@ function createMainWindow() {
       contextIsolation: false,
       enableRemoteModule: true,
       devTools: false,
-      webSecurity: true,
+      webSecurity: true
     },
   });
+
+  Menu.setApplicationMenu(null);
 
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
