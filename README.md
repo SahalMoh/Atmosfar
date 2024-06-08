@@ -3,7 +3,7 @@
 ![Atmosfär](./app-image.png)
 
 <p>
-  <img src="https://img.shields.io/badge/Version-3.1.0-green?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Version-3.1.1-green?style=for-the-badge" alt="Version" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License" />
   
 </p>
