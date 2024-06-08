@@ -1,7 +1,5 @@
-const ck = require('ckey');
-
 const weather = {
-  apiKey: ck.WEATHER_API_KEY,
+  apiKey: '3f7e6abb7a6c4e6ea9e195439241905',
 
   async fetchWeather(query) {
     const loaderWrapper = document.querySelector('.loader-wrapper');

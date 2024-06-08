@@ -3,7 +3,7 @@
 ![Atmosfär](./app-image.png)
 
 <p>
-  <img src="https://img.shields.io/badge/Version-3.1.1-green?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Version-3.1.2-green?style=for-the-badge" alt="Version" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License" />
   
 </p>
@@ -16,7 +16,7 @@ Changelogs For The App Available [Here](https://adac.vercel.app/) (Scroll Down T
 
 ## Install Dependencies
 
-First Install Hyddraulic Conveyor NPM Package Then The Others
+First Install Hydraulic Conveyor NPM Package Then The Others
 
 ```sh
 npm install -g @hydraulic/conveyor
@@ -26,16 +26,6 @@ npm i
 ```
 
 ## Start App
-
-Get Your API Key From [WeatherAPI](https://www.weatherapi.com/)
-
-Make A .env File With
-
-```env
-WEATHER_API_KEY=<YOUR_API_KEY>
-```
-
-Then You Can Start App By
 
 ```sh
 conveyor run
@@ -59,4 +49,4 @@ _This Project Follows <a href="https://gitmoji.dev/">Gitmoji</a> For Commit Mess
 
 _Powered By:_
 
-<a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
+<a href="https://www.weatherapi.com/" title="Free Weather API"><img src='https://cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
