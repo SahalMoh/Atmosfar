@@ -1,5 +1,7 @@
+require('@dotenvx/dotenvx').config()
+
 const weather = {
-  apiKey: "3f7e6abb7a6c4e6ea9e195439241905",
+  apiKey: `${process.env.WEATHER_API_KEY}`,
 
   async fetchWeather(query) {
     const loaderWrapper = document.querySelector('.loader-wrapper');
@@ -7,7 +9,7 @@ const weather = {
 
     try {
       const weatherResponse = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${query}&aqi=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}&q=${query}&days=2&aqi=yes`
       );
       if (!weatherResponse.ok) {
         throw new Error("City Not Found");
@@ -71,6 +73,7 @@ const weather = {
         air_quality: { co, o3, no2, so2, pm2_5, pm10 },
         air_quality: { "us-epa-index": usepaindex, "gb-defra-index": ukdefraindex },
       },
+      forecast: { forecastday }
     } = data;
 
     const body = document.body;
@@ -165,6 +168,20 @@ const weather = {
         "#1b1b1b"
       );
     }
+
+    for (let hourIndex = 0; hourIndex < 24; hourIndex++) {
+      const forecastHour = forecastday[0].hour[hourIndex];
+      const weatherBox = document.querySelector(`.weather-box.hour${hourIndex + 1}`);
+      const boxIcon = weatherBox.querySelector(".box-icon");
+      const localForecastIconPath = forecastHour.condition.icon.replace(
+        "//cdn.weatherapi.com/weather/64x64",
+        "./assets/weather/64x64"
+      );
+      boxIcon.src = localForecastIconPath;
+      weatherBox.querySelector(".box-title").innerText = `${forecastHour.temp_c}°C / ${forecastHour.temp_f}°F`;
+      weatherBox.querySelector(".box-subtitle").innerText = forecastHour.time;
+    }
+    
   },
 
   displayAstronomy(data) {
