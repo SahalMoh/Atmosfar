@@ -1,6 +1,6 @@
 {
   "name": "atmosfar",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "The Weather At Your Fingertips.",
   "main": "main.js",
   "repository": "https://github.com/SahalMoh/Atmosfar.git",
@@ -21,7 +21,7 @@
     "electron": "^30.0.0"
   },
   "dependencies": {
-    "@dotenvx/dotenvx": "^0.44.1",
-    "@electron/remote": "^2.1.2"
+    "@electron/remote": "^2.1.2",
+    "ckey": "^1.0.3"
   }
 }

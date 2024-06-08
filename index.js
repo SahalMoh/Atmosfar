@@ -1,7 +1,7 @@
-require('@dotenvx/dotenvx').config()
+const ck = require('ckey');
 
 const weather = {
-  apiKey: `${process.env.WEATHER_API_KEY}`,
+  apiKey: ck.WEATHER_API_KEY,
 
   async fetchWeather(query) {
     const loaderWrapper = document.querySelector('.loader-wrapper');

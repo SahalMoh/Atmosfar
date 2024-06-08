@@ -22,7 +22,6 @@ function createMainWindow() {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
-      devTools: false,
       webSecurity: true
     },
   });

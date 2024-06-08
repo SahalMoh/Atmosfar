@@ -250,7 +250,8 @@ p {
     color: #fff;
     cursor: pointer;
     font-size: 1.2em;
-    transition: 0.4s;  
+    transition: 0.4s; 
+    border-radius: 0 0 0 20px; 
 }
 
 .submit:hover {
